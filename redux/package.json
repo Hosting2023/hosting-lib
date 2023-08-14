@@ -1,0 +1,21 @@
+{
+  "name": "@spectrages/redux-lib",
+  "version": "1.0.0",
+  "private": false,
+  "description": "Redux and API utility for our projects",
+  "main": "store/store.ts",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Artsiom Malyshev",
+  "license": "ISC",
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.9.3"
+  },
+  "publishConfig": {
+    "registry":"https://npm.pkg.github.com/"
+  }
+}
