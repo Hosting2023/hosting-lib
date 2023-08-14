@@ -3,19 +3,22 @@
   "version": "1.0.2",
   "private": false,
   "description": "Redux and API utility for our projects",
-  "main": "store/store.ts",
+  "main": "dist/store/store.js",
   "directories": {
     "lib": "lib"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "tsc"
   },
   "author": "Artsiom Malyshev",
   "license": "ISC",
   "dependencies": {
-    "@reduxjs/toolkit": "^1.9.3"
+    "@reduxjs/toolkit": "^1.9.5",
+    "react-redux": "^8.1.2",
+    "redux": "^4.2.0"
   },
   "publishConfig": {
-    "registry":"https://npm.pkg.github.com/"
+    "registry": "https://npm.pkg.github.com/"
   }
 }

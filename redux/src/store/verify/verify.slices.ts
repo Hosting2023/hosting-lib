@@ -8,9 +8,17 @@ type VerifyErrorPayload = {
   message: string;
 };
 
+type EmailVerifyCode = {
+  code: string;
+};
+
+type Response = {
+  response: boolean;
+};
+
 type IInitialState = {
-  emailVerifyCode: string | null;
-  getVerifyCode: string | null;
+  emailVerifyCode: EmailVerifyCode | null;
+  getVerifyCode: Response | null;
   errors: {
     emailVerifyCode: string | null;
     getVerifyCode: string | null;
@@ -43,7 +51,7 @@ const verifySlice = createSlice<IInitialState, any, any>({
       state.errors.getVerifyCode = null;
     },
   },
-  extraReducers: (builder) => {
+  extraReducers: (builder: any) => {
     builder
       .addCase(fetchEmailVerifyCode.pending, (state: IInitialState) => {
         state.pending.emailVerifyCode = true;

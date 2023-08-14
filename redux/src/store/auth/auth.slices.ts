@@ -55,7 +55,7 @@ const authSlice = createSlice<IInitialState, any, any>({
       state.isAuth = true;
     },
   },
-  extraReducers: (builder) => {
+  extraReducers: (builder: any) => {
     builder
       .addCase(fetchCheckAuth.pending, (state: IInitialState) => {
         state.pending.isAuth = true;

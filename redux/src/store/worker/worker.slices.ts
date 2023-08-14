@@ -45,44 +45,43 @@ const workerSlice = createSlice({
       state.errors.createOrder = null;
     },
   },
-  extraReducers: (builder) => {
-    builder.addCase(fetchGetWorkerInfo.pending, (state: IInitialState) => {
-      state.pending.getWorker = true;
-      state.errors.getWorker = null;
-    });
-    builder.addCase(
-      fetchGetWorkerInfo.fulfilled,
-      (state: IInitialState, action: PayloadAction<IGetWorkerResponse>) => {
-        state.pending.getWorker = false;
-        state.workerInfo = action.payload;
-      }
-    );
-    builder.addCase(
-      fetchGetWorkerInfo.rejected,
-      (state: IInitialState, action: PayloadAction<string>) => {
-        state.pending.getWorker = false;
-        state.errors.getWorker = action.payload;
-      }
-    );
+  extraReducers: (builder: any) => {
+    builder
+      .addCase(fetchGetWorkerInfo.pending, (state: IInitialState) => {
+        state.pending.getWorker = true;
+        state.errors.getWorker = null;
+      })
+      .addCase(
+        fetchGetWorkerInfo.fulfilled,
+        (state: IInitialState, action: PayloadAction<IGetWorkerResponse>) => {
+          state.pending.getWorker = false;
+          state.workerInfo = action.payload;
+        }
+      )
+      .addCase(
+        fetchGetWorkerInfo.rejected,
+        (state: IInitialState, action: PayloadAction<string>) => {
+          state.pending.getWorker = false;
+          state.errors.getWorker = action.payload;
+        }
+      );
 
-    builder.addCase(fetchCreateOrder.pending, (state: IInitialState) => {
-      state.pending.createOrder = true;
-      state.errors.createOrder = null;
-    });
-    builder.addCase(
-      fetchCreateOrder.fulfilled,
-      (state: IInitialState, action: PayloadAction<{ response: Status }>) => {
-        state.pending.createOrder = false;
-        state.orderCreationStatus = action.payload.response;
-      }
-    );
-    builder.addCase(
-      fetchCreateOrder.rejected,
-      (state: IInitialState, action: PayloadAction<string>) => {
+    builder
+      .addCase(fetchCreateOrder.pending, (state: IInitialState) => {
+        state.pending.createOrder = true;
+        state.errors.createOrder = null;
+      })
+      .addCase(
+        fetchCreateOrder.fulfilled,
+        (state: IInitialState, action: PayloadAction<{ response: Status }>) => {
+          state.pending.createOrder = false;
+          state.orderCreationStatus = action.payload.response;
+        }
+      )
+      .addCase(fetchCreateOrder.rejected, (state: IInitialState, action: PayloadAction<string>) => {
         state.pending.createOrder = false;
         state.errors.createOrder = action.payload;
-      }
-    );
+      });
   },
 });
 

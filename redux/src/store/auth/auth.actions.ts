@@ -39,7 +39,7 @@ export const fetchSignUp = createAsyncThunk<ISignUpResponse, ISignUpRequest, {}>
 
 export const fetchCheckAuth = createAsyncThunk<{}, ICheckAuthResponse, {}>(
   Endpoint.CheckAuth,
-  async ({ rejectWithValue }) => {
+  async (_, { rejectWithValue }) => {
     try {
       const response = await api.get(Endpoint.CheckAuth);
       return { status: Status.Authenticated };
@@ -49,7 +49,7 @@ export const fetchCheckAuth = createAsyncThunk<{}, ICheckAuthResponse, {}>(
   }
 );
 
-export const logout = createAsyncThunk(Endpoint.Logout, async ({ rejectWithValue }) => {
+export const logout = createAsyncThunk(Endpoint.Logout, async (_, { rejectWithValue }) => {
   try {
     const response = await api.get(Endpoint.Logout);
     return { status: Status.Unauthenticated };
@@ -60,7 +60,7 @@ export const logout = createAsyncThunk(Endpoint.Logout, async ({ rejectWithValue
 
 export const fetchSignInWithGoogle = createAsyncThunk(
   Endpoint.GoogleVerification,
-  async ({ rejectWithValue }) => {
+  async (_, { rejectWithValue }) => {
     try {
       const response = await api.get(Endpoint.GoogleVerification);
       return { status: Status.Authenticated };
@@ -72,7 +72,7 @@ export const fetchSignInWithGoogle = createAsyncThunk(
 
 export const fetchSignInWithFacebook = createAsyncThunk(
   Endpoint.FacebookVerification,
-  async ({ rejectWithValue }) => {
+  async (_, { rejectWithValue }) => {
     try {
       const response = await api.get(Endpoint.FacebookVerification);
       return { status: Status.Authenticated };
