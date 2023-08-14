@@ -18,7 +18,7 @@ export const fetchSignIn = createAsyncThunk<ISignInResponse, ISignInRequest, {}>
   async (data: ISignInRequest, { rejectWithValue }) => {
     try {
       const response = await api.post(Endpoint.Login, data);
-      return { id: `123456` };
+      return { status: Status.Authenticated };
     } catch (error: any) {
       return rejectWithValue(error?.response?.data?.message as string);
     }
@@ -30,7 +30,7 @@ export const fetchSignUp = createAsyncThunk<ISignUpResponse, ISignUpRequest, {}>
   async (data: ISignUpRequest, { rejectWithValue }) => {
     try {
       const response = await api.post(Endpoint.Registration, data);
-      return { id: `123456` };
+      return { status: Status.Authenticated };
     } catch (error: any) {
       return rejectWithValue(error?.response?.data?.message as string);
     }

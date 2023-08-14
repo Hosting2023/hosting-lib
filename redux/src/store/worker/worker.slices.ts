@@ -12,26 +12,26 @@ import { IGetWorkerResponse } from "../../utils/types/interfaces/get-worker.inte
 
 type IInitialState = {
   workerInfo: IGetWorkerResponse | null;
-  orderCreationStatus: Status | null;
+  createOrder: Status | null;
   errors: {
-    getWorker: string | null;
+    workerInfo: string | null;
     createOrder: string | null;
   };
   pending: {
-    getWorker: boolean;
+    workerInfo: boolean;
     createOrder: boolean;
   };
 };
 
 const initialState: IInitialState = {
   workerInfo: null,
-  orderCreationStatus: null,
+  createOrder: null,
   errors: {
-    getWorker: null,
+    workerInfo: null,
     createOrder: null,
   },
   pending: {
-    getWorker: false,
+    workerInfo: false,
     createOrder: false,
   },
 };
@@ -41,28 +41,28 @@ const workerSlice = createSlice({
   initialState,
   reducers: {
     clearErrors: (state: IInitialState) => {
-      state.errors.getWorker = null;
+      state.errors.workerInfo = null;
       state.errors.createOrder = null;
     },
   },
   extraReducers: (builder: any) => {
     builder
       .addCase(fetchGetWorkerInfo.pending, (state: IInitialState) => {
-        state.pending.getWorker = true;
-        state.errors.getWorker = null;
+        state.pending.workerInfo = true;
+        state.errors.workerInfo = null;
       })
       .addCase(
         fetchGetWorkerInfo.fulfilled,
         (state: IInitialState, action: PayloadAction<IGetWorkerResponse>) => {
-          state.pending.getWorker = false;
+          state.pending.workerInfo = false;
           state.workerInfo = action.payload;
         }
       )
       .addCase(
         fetchGetWorkerInfo.rejected,
         (state: IInitialState, action: PayloadAction<string>) => {
-          state.pending.getWorker = false;
-          state.errors.getWorker = action.payload;
+          state.pending.workerInfo = false;
+          state.errors.workerInfo = action.payload;
         }
       );
 
@@ -75,7 +75,7 @@ const workerSlice = createSlice({
         fetchCreateOrder.fulfilled,
         (state: IInitialState, action: PayloadAction<{ response: Status }>) => {
           state.pending.createOrder = false;
-          state.orderCreationStatus = action.payload.response;
+          state.createOrder = action.payload.response;
         }
       )
       .addCase(fetchCreateOrder.rejected, (state: IInitialState, action: PayloadAction<string>) => {

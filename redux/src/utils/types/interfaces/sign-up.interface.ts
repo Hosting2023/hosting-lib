@@ -8,5 +8,5 @@ export interface ISignUpRequest {
 }
 
 export interface ISignUpResponse {
-  id: string;
+  status: string;
 }

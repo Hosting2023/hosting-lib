@@ -1,14 +1,10 @@
 // ========================== store ===========================
 import { RootState } from "../store";
 
-export const selectWorkerInfo = (state: RootState) => state.worker.workerInfo;
+export const GetWorkerInfo = (state: RootState) => state.worker.workerInfo;
+export const GetWorkerErrorInfo = (state: RootState) => state.worker.errors.workerInfo;
+export const GetWorkerPendingInfo = (state: RootState) => state.worker.pending.workerInfo;
 
-export const selectOrderCreationStatus = (state: RootState) => state.worker.orderCreationStatus;
-
-export const selectGetWorkerError = (state: RootState) => state.worker.errors.getWorker;
-
-export const selectCreateOrderError = (state: RootState) => state.worker.errors.createOrder;
-
-export const selectIsGettingWorkerPending = (state: RootState) => state.worker.pending.getWorker;
-
-export const selectIsCreatingOrderPending = (state: RootState) => state.worker.pending.createOrder;
+export const CreateOrder = (state: RootState) => state.worker.createOrder;
+export const CreateOrderErrors = (state: RootState) => state.worker.errors.createOrder;
+export const CreateOrderPending = (state: RootState) => state.worker.pending.createOrder;

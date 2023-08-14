@@ -4,5 +4,5 @@ export interface ISignInRequest {
 }
 
 export interface ISignInResponse {
-  id: string;
+  status: string;
 }

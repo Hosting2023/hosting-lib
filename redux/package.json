@@ -1,9 +1,9 @@
 {
   "name": "@hosting2023/redux-lib",
-  "version": "1.0.2",
+  "version": "1.0.8",
   "private": false,
   "description": "Redux and API utility for our projects",
-  "main": "dist/store/store.js",
+  "main": "dist/index.js",
   "directories": {
     "lib": "lib"
   },

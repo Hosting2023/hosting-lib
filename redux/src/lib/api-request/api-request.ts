@@ -1,12 +1,5 @@
 import { ContentType, HttpMethod } from "../enum/api-methods.enum";
-
-const API_CONFIG = {
-  baseURL: "http://localhost:8080/",
-  headers: {
-    Accept: "application.json",
-    "Content-type": ContentType.applicationJSON,
-  },
-};
+import { API_CONFIG } from "./config";
 
 class BaseRequest {
   async baseFetch({ method, uri, data }: { method: HttpMethod; uri: string; data?: any }) {
