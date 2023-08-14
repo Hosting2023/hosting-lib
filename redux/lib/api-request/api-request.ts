@@ -1,20 +1,24 @@
 import { ContentType, HttpMethod } from "../enum/api-methods.enum";
 
-class BaseRequest {
-  URL = "http://localhost:8080/";
-  HEADER = {
+const API_CONFIG = {
+  baseURL: "http://localhost:8080/",
+  headers: {
     Accept: "application.json",
     "Content-type": ContentType.applicationJSON,
-  };
+  },
+};
 
-  async baseFetch(method: HttpMethod, uri: string, data?: any) {
+class BaseRequest {
+  async baseFetch({ method, uri, data }: { method: HttpMethod; uri: string; data?: any }) {
+    const url = `${API_CONFIG.baseURL}${uri}`;
     try {
-      const response = await fetch(`${this.URL}${uri}`, {
-        method: method,
+      const response = await fetch(url, {
+        method,
         body: JSON.stringify(data),
-        headers: this.HEADER,
+        headers: API_CONFIG.headers,
         credentials: "include",
       });
+
       const contentType = response.headers.get("content-type");
       if (contentType && contentType.includes(ContentType.applicationJSON)) {
         return await response.json();
@@ -22,28 +26,26 @@ class BaseRequest {
         return await response.text();
       }
     } catch (error) {
-      console.log(error);
-      throw error;
+      throw new Error(`Error: ${error}`);
     }
   }
 }
 
 class ApiRequest extends BaseRequest {
   get(uri: string) {
-    return this.baseFetch(HttpMethod.GET, uri);
+    return this.baseFetch({ method: HttpMethod.GET, uri });
   }
 
-  //TODO typing data
   post(uri: string, data: any) {
-    return this.baseFetch(HttpMethod.POST, uri, data);
+    return this.baseFetch({ method: HttpMethod.POST, uri, data });
   }
 
   put(uri: string, data: any) {
-    return this.baseFetch(HttpMethod.PUT, uri, data);
+    return this.baseFetch({ method: HttpMethod.PUT, uri, data });
   }
 
   delete(uri: string) {
-    return this.baseFetch(HttpMethod.DELETE, uri);
+    return this.baseFetch({ method: HttpMethod.DELETE, uri });
   }
 }
 
