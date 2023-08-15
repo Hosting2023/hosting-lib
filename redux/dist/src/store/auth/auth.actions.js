@@ -37,8 +37,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.fetchSignInWithFacebook = exports.fetchSignInWithGoogle = exports.logout = exports.fetchCheckAuth = exports.fetchSignUp = exports.fetchSignIn = void 0;
-// ========================== api =============================
-var api_request_1 = require("../../lib/api-request/api-request");
 // ========================== redux ===========================
 var toolkit_1 = require("@reduxjs/toolkit");
 // ========================== const ======================
@@ -47,126 +45,96 @@ var statuses_enum_1 = require("../../utils/enum/statuses.enum");
 exports.fetchSignIn = (0, toolkit_1.createAsyncThunk)(endpoint_enum_1.Endpoint.Login, function (data, _a) {
     var rejectWithValue = _a.rejectWithValue;
     return __awaiter(void 0, void 0, void 0, function () {
-        var response, error_1;
         var _b, _c;
         return __generator(this, function (_d) {
-            switch (_d.label) {
-                case 0:
-                    _d.trys.push([0, 2, , 3]);
-                    return [4 /*yield*/, api_request_1.default.post(endpoint_enum_1.Endpoint.Login, data)];
-                case 1:
-                    response = _d.sent();
-                    return [2 /*return*/, { status: statuses_enum_1.Status.Authenticated }];
-                case 2:
-                    error_1 = _d.sent();
-                    return [2 /*return*/, rejectWithValue((_c = (_b = error_1 === null || error_1 === void 0 ? void 0 : error_1.response) === null || _b === void 0 ? void 0 : _b.data) === null || _c === void 0 ? void 0 : _c.message)];
-                case 3: return [2 /*return*/];
+            try {
+                // const response = await api.post(Endpoint.Login, data);
+                return [2 /*return*/, { status: statuses_enum_1.Status.Authenticated }];
             }
+            catch (error) {
+                return [2 /*return*/, rejectWithValue((_c = (_b = error === null || error === void 0 ? void 0 : error.response) === null || _b === void 0 ? void 0 : _b.data) === null || _c === void 0 ? void 0 : _c.message)];
+            }
+            return [2 /*return*/];
         });
     });
 });
 exports.fetchSignUp = (0, toolkit_1.createAsyncThunk)(endpoint_enum_1.Endpoint.Registration, function (data, _a) {
     var rejectWithValue = _a.rejectWithValue;
     return __awaiter(void 0, void 0, void 0, function () {
-        var response, error_2;
         var _b, _c;
         return __generator(this, function (_d) {
-            switch (_d.label) {
-                case 0:
-                    _d.trys.push([0, 2, , 3]);
-                    return [4 /*yield*/, api_request_1.default.post(endpoint_enum_1.Endpoint.Registration, data)];
-                case 1:
-                    response = _d.sent();
-                    return [2 /*return*/, { status: statuses_enum_1.Status.Authenticated }];
-                case 2:
-                    error_2 = _d.sent();
-                    return [2 /*return*/, rejectWithValue((_c = (_b = error_2 === null || error_2 === void 0 ? void 0 : error_2.response) === null || _b === void 0 ? void 0 : _b.data) === null || _c === void 0 ? void 0 : _c.message)];
-                case 3: return [2 /*return*/];
+            try {
+                // const response = await api.post(Endpoint.Registration, data);
+                return [2 /*return*/, { status: statuses_enum_1.Status.Authenticated }];
             }
+            catch (error) {
+                return [2 /*return*/, rejectWithValue((_c = (_b = error === null || error === void 0 ? void 0 : error.response) === null || _b === void 0 ? void 0 : _b.data) === null || _c === void 0 ? void 0 : _c.message)];
+            }
+            return [2 /*return*/];
         });
     });
 });
 exports.fetchCheckAuth = (0, toolkit_1.createAsyncThunk)(endpoint_enum_1.Endpoint.CheckAuth, function (_, _a) {
     var rejectWithValue = _a.rejectWithValue;
     return __awaiter(void 0, void 0, void 0, function () {
-        var response, error_3;
         var _b, _c;
         return __generator(this, function (_d) {
-            switch (_d.label) {
-                case 0:
-                    _d.trys.push([0, 2, , 3]);
-                    return [4 /*yield*/, api_request_1.default.get(endpoint_enum_1.Endpoint.CheckAuth)];
-                case 1:
-                    response = _d.sent();
-                    return [2 /*return*/, { status: statuses_enum_1.Status.Authenticated }];
-                case 2:
-                    error_3 = _d.sent();
-                    return [2 /*return*/, rejectWithValue((_c = (_b = error_3 === null || error_3 === void 0 ? void 0 : error_3.response) === null || _b === void 0 ? void 0 : _b.data) === null || _c === void 0 ? void 0 : _c.message)];
-                case 3: return [2 /*return*/];
+            try {
+                // const response = await api.get(Endpoint.CheckAuth);
+                return [2 /*return*/, { status: statuses_enum_1.Status.Authenticated }];
             }
+            catch (error) {
+                return [2 /*return*/, rejectWithValue((_c = (_b = error === null || error === void 0 ? void 0 : error.response) === null || _b === void 0 ? void 0 : _b.data) === null || _c === void 0 ? void 0 : _c.message)];
+            }
+            return [2 /*return*/];
         });
     });
 });
 exports.logout = (0, toolkit_1.createAsyncThunk)(endpoint_enum_1.Endpoint.Logout, function (_, _a) {
     var rejectWithValue = _a.rejectWithValue;
     return __awaiter(void 0, void 0, void 0, function () {
-        var response, error_4;
         var _b, _c;
         return __generator(this, function (_d) {
-            switch (_d.label) {
-                case 0:
-                    _d.trys.push([0, 2, , 3]);
-                    return [4 /*yield*/, api_request_1.default.get(endpoint_enum_1.Endpoint.Logout)];
-                case 1:
-                    response = _d.sent();
-                    return [2 /*return*/, { status: statuses_enum_1.Status.Unauthenticated }];
-                case 2:
-                    error_4 = _d.sent();
-                    return [2 /*return*/, rejectWithValue((_c = (_b = error_4 === null || error_4 === void 0 ? void 0 : error_4.response) === null || _b === void 0 ? void 0 : _b.data) === null || _c === void 0 ? void 0 : _c.message)];
-                case 3: return [2 /*return*/];
+            try {
+                // const response = await api.get(Endpoint.Logout);
+                return [2 /*return*/, { status: statuses_enum_1.Status.Unauthenticated }];
             }
+            catch (error) {
+                return [2 /*return*/, rejectWithValue((_c = (_b = error === null || error === void 0 ? void 0 : error.response) === null || _b === void 0 ? void 0 : _b.data) === null || _c === void 0 ? void 0 : _c.message)];
+            }
+            return [2 /*return*/];
         });
     });
 });
 exports.fetchSignInWithGoogle = (0, toolkit_1.createAsyncThunk)(endpoint_enum_1.Endpoint.GoogleVerification, function (_, _a) {
     var rejectWithValue = _a.rejectWithValue;
     return __awaiter(void 0, void 0, void 0, function () {
-        var response, error_5;
         var _b, _c;
         return __generator(this, function (_d) {
-            switch (_d.label) {
-                case 0:
-                    _d.trys.push([0, 2, , 3]);
-                    return [4 /*yield*/, api_request_1.default.get(endpoint_enum_1.Endpoint.GoogleVerification)];
-                case 1:
-                    response = _d.sent();
-                    return [2 /*return*/, { status: statuses_enum_1.Status.Authenticated }];
-                case 2:
-                    error_5 = _d.sent();
-                    return [2 /*return*/, rejectWithValue((_c = (_b = error_5 === null || error_5 === void 0 ? void 0 : error_5.response) === null || _b === void 0 ? void 0 : _b.data) === null || _c === void 0 ? void 0 : _c.message)];
-                case 3: return [2 /*return*/];
+            try {
+                // const response = await api.get(Endpoint.GoogleVerification);
+                return [2 /*return*/, { status: statuses_enum_1.Status.Authenticated }];
             }
+            catch (error) {
+                return [2 /*return*/, rejectWithValue((_c = (_b = error === null || error === void 0 ? void 0 : error.response) === null || _b === void 0 ? void 0 : _b.data) === null || _c === void 0 ? void 0 : _c.message)];
+            }
+            return [2 /*return*/];
         });
     });
 });
 exports.fetchSignInWithFacebook = (0, toolkit_1.createAsyncThunk)(endpoint_enum_1.Endpoint.FacebookVerification, function (_, _a) {
     var rejectWithValue = _a.rejectWithValue;
     return __awaiter(void 0, void 0, void 0, function () {
-        var response, error_6;
         var _b, _c;
         return __generator(this, function (_d) {
-            switch (_d.label) {
-                case 0:
-                    _d.trys.push([0, 2, , 3]);
-                    return [4 /*yield*/, api_request_1.default.get(endpoint_enum_1.Endpoint.FacebookVerification)];
-                case 1:
-                    response = _d.sent();
-                    return [2 /*return*/, { status: statuses_enum_1.Status.Authenticated }];
-                case 2:
-                    error_6 = _d.sent();
-                    return [2 /*return*/, rejectWithValue((_c = (_b = error_6 === null || error_6 === void 0 ? void 0 : error_6.response) === null || _b === void 0 ? void 0 : _b.data) === null || _c === void 0 ? void 0 : _c.message)];
-                case 3: return [2 /*return*/];
+            try {
+                // const response = await api.get(Endpoint.FacebookVerification);
+                return [2 /*return*/, { status: statuses_enum_1.Status.Authenticated }];
             }
+            catch (error) {
+                return [2 /*return*/, rejectWithValue((_c = (_b = error === null || error === void 0 ? void 0 : error.response) === null || _b === void 0 ? void 0 : _b.data) === null || _c === void 0 ? void 0 : _c.message)];
+            }
+            return [2 /*return*/];
         });
     });
 });

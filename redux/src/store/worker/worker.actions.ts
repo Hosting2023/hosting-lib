@@ -23,7 +23,7 @@ export const fetchGetWorkerInfo = createAsyncThunk<IGetWorkerResponse, IGetWorke
   Endpoint.GetWorker,
   async (data: IGetWorkerRequest, { rejectWithValue }) => {
     try {
-      const response = await api.post(Endpoint.GetWorker, data);
+      // const response = await api.post(Endpoint.GetWorker, data);
       return {
         profile: {
           userId: "12345",
@@ -53,7 +53,7 @@ export const fetchCreateOrder = createAsyncThunk<ICreateOrderResponse, ICreateOr
   Endpoint.CreateOrder,
   async (data: ICreateOrderRequest, { rejectWithValue }) => {
     try {
-      const response = await api.post(Endpoint.CreateOrder, data);
+      // const response = await api.post(Endpoint.CreateOrder, data);
       return { response: Status.Created };
     } catch (error: any) {
       return rejectWithValue(error?.response?.data?.message as string);

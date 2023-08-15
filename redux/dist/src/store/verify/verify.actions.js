@@ -37,8 +37,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.fetchGetVerifyCode = exports.fetchEmailVerifyCode = void 0;
-// ========================== api =============================
-var api_request_1 = require("../../lib/api-request/api-request");
 // ========================== redux ===========================
 var toolkit_1 = require("@reduxjs/toolkit");
 // ========================== const ============================
@@ -46,42 +44,32 @@ var endpoint_enum_1 = require("../../utils/enum/endpoint.enum");
 exports.fetchEmailVerifyCode = (0, toolkit_1.createAsyncThunk)(endpoint_enum_1.Endpoint.EmailVerifyCode, function (data, _a) {
     var rejectWithValue = _a.rejectWithValue;
     return __awaiter(void 0, void 0, void 0, function () {
-        var response, error_1;
         var _b, _c;
         return __generator(this, function (_d) {
-            switch (_d.label) {
-                case 0:
-                    _d.trys.push([0, 2, , 3]);
-                    return [4 /*yield*/, api_request_1.default.post(endpoint_enum_1.Endpoint.EmailVerifyCode, data)];
-                case 1:
-                    response = _d.sent();
-                    return [2 /*return*/, { code: "123456" }];
-                case 2:
-                    error_1 = _d.sent();
-                    return [2 /*return*/, rejectWithValue((_c = (_b = error_1 === null || error_1 === void 0 ? void 0 : error_1.response) === null || _b === void 0 ? void 0 : _b.data) === null || _c === void 0 ? void 0 : _c.message)];
-                case 3: return [2 /*return*/];
+            try {
+                // const response = await api.post(Endpoint.EmailVerifyCode, data);
+                return [2 /*return*/, { code: "123456" }];
             }
+            catch (error) {
+                return [2 /*return*/, rejectWithValue((_c = (_b = error === null || error === void 0 ? void 0 : error.response) === null || _b === void 0 ? void 0 : _b.data) === null || _c === void 0 ? void 0 : _c.message)];
+            }
+            return [2 /*return*/];
         });
     });
 });
 exports.fetchGetVerifyCode = (0, toolkit_1.createAsyncThunk)(endpoint_enum_1.Endpoint.GetVerifyCode, function (data, _a) {
     var rejectWithValue = _a.rejectWithValue;
     return __awaiter(void 0, void 0, void 0, function () {
-        var response, error_2;
         var _b, _c;
         return __generator(this, function (_d) {
-            switch (_d.label) {
-                case 0:
-                    _d.trys.push([0, 2, , 3]);
-                    return [4 /*yield*/, api_request_1.default.post(endpoint_enum_1.Endpoint.GetVerifyCode, data)];
-                case 1:
-                    response = _d.sent();
-                    return [2 /*return*/, { response: true }];
-                case 2:
-                    error_2 = _d.sent();
-                    return [2 /*return*/, rejectWithValue((_c = (_b = error_2 === null || error_2 === void 0 ? void 0 : error_2.response) === null || _b === void 0 ? void 0 : _b.data) === null || _c === void 0 ? void 0 : _c.message)];
-                case 3: return [2 /*return*/];
+            try {
+                // const response = await api.post(Endpoint.GetVerifyCode, data);
+                return [2 /*return*/, { response: true }];
             }
+            catch (error) {
+                return [2 /*return*/, rejectWithValue((_c = (_b = error === null || error === void 0 ? void 0 : error.response) === null || _b === void 0 ? void 0 : _b.data) === null || _c === void 0 ? void 0 : _c.message)];
+            }
+            return [2 /*return*/];
         });
     });
 });

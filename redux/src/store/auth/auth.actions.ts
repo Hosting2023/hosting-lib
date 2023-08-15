@@ -17,7 +17,7 @@ export const fetchSignIn = createAsyncThunk<ISignInResponse, ISignInRequest, {}>
   Endpoint.Login,
   async (data: ISignInRequest, { rejectWithValue }) => {
     try {
-      const response = await api.post(Endpoint.Login, data);
+      // const response = await api.post(Endpoint.Login, data);
       return { status: Status.Authenticated };
     } catch (error: any) {
       return rejectWithValue(error?.response?.data?.message as string);
@@ -29,7 +29,7 @@ export const fetchSignUp = createAsyncThunk<ISignUpResponse, ISignUpRequest, {}>
   Endpoint.Registration,
   async (data: ISignUpRequest, { rejectWithValue }) => {
     try {
-      const response = await api.post(Endpoint.Registration, data);
+      // const response = await api.post(Endpoint.Registration, data);
       return { status: Status.Authenticated };
     } catch (error: any) {
       return rejectWithValue(error?.response?.data?.message as string);
@@ -41,7 +41,7 @@ export const fetchCheckAuth = createAsyncThunk<ICheckAuthResponse, void, {}>(
   Endpoint.CheckAuth,
   async (_, { rejectWithValue }) => {
     try {
-      const response = await api.get(Endpoint.CheckAuth);
+      // const response = await api.get(Endpoint.CheckAuth);
       return { status: Status.Authenticated };
     } catch (error: any) {
       return rejectWithValue(error?.response?.data?.message as string);
@@ -51,7 +51,7 @@ export const fetchCheckAuth = createAsyncThunk<ICheckAuthResponse, void, {}>(
 
 export const logout = createAsyncThunk(Endpoint.Logout, async (_, { rejectWithValue }) => {
   try {
-    const response = await api.get(Endpoint.Logout);
+    // const response = await api.get(Endpoint.Logout);
     return { status: Status.Unauthenticated };
   } catch (error: any) {
     return rejectWithValue(error?.response?.data?.message as string);
@@ -62,7 +62,7 @@ export const fetchSignInWithGoogle = createAsyncThunk(
   Endpoint.GoogleVerification,
   async (_, { rejectWithValue }) => {
     try {
-      const response = await api.get(Endpoint.GoogleVerification);
+      // const response = await api.get(Endpoint.GoogleVerification);
       return { status: Status.Authenticated };
     } catch (error: any) {
       return rejectWithValue(error?.response?.data?.message as string);
@@ -74,7 +74,7 @@ export const fetchSignInWithFacebook = createAsyncThunk(
   Endpoint.FacebookVerification,
   async (_, { rejectWithValue }) => {
     try {
-      const response = await api.get(Endpoint.FacebookVerification);
+      // const response = await api.get(Endpoint.FacebookVerification);
       return { status: Status.Authenticated };
     } catch (error: any) {
       return rejectWithValue(error?.response?.data?.message as string);

@@ -1,6 +1,6 @@
 {
   "name": "@hosting2023/redux-lib",
-  "version": "1.1.16",
+  "version": "1.1.18",
   "private": false,
   "description": "Redux and API utility for our projects",
   "main": "dist/index.js",

@@ -23,7 +23,7 @@ export const fetchEmailVerifyCode = createAsyncThunk<
   {}
 >(Endpoint.EmailVerifyCode, async (data: IEmailVerifyCodeRequest, { rejectWithValue }) => {
   try {
-    const response = await api.post(Endpoint.EmailVerifyCode, data);
+    // const response = await api.post(Endpoint.EmailVerifyCode, data);
     return { code: `123456` };
   } catch (error: any) {
     return rejectWithValue(error?.response?.data?.message as string);
@@ -34,7 +34,7 @@ export const fetchGetVerifyCode = createAsyncThunk<IVerifyCodeResponse, IVerifyC
   Endpoint.GetVerifyCode,
   async (data: IVerifyCodeRequest, { rejectWithValue }) => {
     try {
-      const response = await api.post(Endpoint.GetVerifyCode, data);
+      // const response = await api.post(Endpoint.GetVerifyCode, data);
       return { response: true };
     } catch (error: any) {
       return rejectWithValue(error?.response?.data?.message as string);
