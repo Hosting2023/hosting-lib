@@ -8,7 +8,7 @@ Redux and API utility for our projects.
 npm install @hosting2023/redux-lib@latest --registry=https://npm.pkg.github.com/hosting2023
 ```
 
-## Для начала рекомендуется вызвать configureAPIи утсановить своё значение в поле baseURL
+## Для начала рекомендуется вызвать configureAPI и установить своё значение в поле baseURL
 
 ```javascript
 import { configureAPI } from "@hosting2023/redux-lib";
