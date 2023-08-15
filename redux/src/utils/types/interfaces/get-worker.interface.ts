@@ -5,11 +5,19 @@ export interface IGetWorkerRequest {
   address: string;
 }
 
-export interface IGetWorkerResponse {
-  name: string;
-  age: string;
-  estimate: number;
+interface IWorker {
+  userId: string;
+  lastName: string;
+  firstName: string;
+}
+
+interface IWorkPeriod {
   activeWeekdays: string[];
   startTime: string;
   endTime: string;
+}
+
+export interface IGetWorkerResponse {
+  profile: IWorker;
+  schedule: IWorkPeriod[];
 }

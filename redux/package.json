@@ -1,24 +1,30 @@
 {
   "name": "@hosting2023/redux-lib",
-  "version": "1.0.8",
+  "version": "1.1.16",
   "private": false,
   "description": "Redux and API utility for our projects",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "directories": {
     "lib": "lib"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "compile": "tsc"
+    "compile": "echo 'Compiling...' && tsc && echo 'Done!'"
   },
   "author": "Artsiom Malyshev",
   "license": "ISC",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
+    "@types/react-dom": "^18.2.7",
+    "react-dom": "^18.2.0",
     "react-redux": "^8.1.2",
     "redux": "^4.2.0"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
+  },
+  "devDependencies": {
+    "typescript": "^5.1.6"
   }
 }

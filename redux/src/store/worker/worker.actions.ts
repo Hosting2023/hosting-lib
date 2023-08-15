@@ -25,12 +25,23 @@ export const fetchGetWorkerInfo = createAsyncThunk<IGetWorkerResponse, IGetWorke
     try {
       const response = await api.post(Endpoint.GetWorker, data);
       return {
-        name: `Jane`,
-        age: `30`,
-        estimate: 4.5,
-        activeWeekdays: [`MON`, `WED`, `FRI`],
-        startTime: `12:00`,
-        endTime: `14:00`,
+        profile: {
+          userId: "12345",
+          lastName: "Doe",
+          firstName: "John",
+        },
+        schedule: [
+          {
+            activeWeekdays: ["MON", "TUE", "WED"],
+            startTime: "09:00",
+            endTime: "17:00",
+          },
+          {
+            activeWeekdays: ["THU", "FRI"],
+            startTime: "10:00",
+            endTime: "18:00",
+          },
+        ],
       };
     } catch (error: any) {
       return rejectWithValue(error?.response?.data?.message as string);
