@@ -37,7 +37,7 @@ export const fetchSignUp = createAsyncThunk<ISignUpResponse, ISignUpRequest, {}>
   }
 );
 
-export const fetchCheckAuth = createAsyncThunk<{}, ICheckAuthResponse, {}>(
+export const fetchCheckAuth = createAsyncThunk<ICheckAuthResponse, void, {}>(
   Endpoint.CheckAuth,
   async (_, { rejectWithValue }) => {
     try {
