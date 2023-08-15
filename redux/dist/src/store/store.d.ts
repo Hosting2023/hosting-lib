@@ -1,5 +1,5 @@
 import { TypedUseSelectorHook } from "react-redux";
-declare const store: import("@reduxjs/toolkit/dist/configureStore").ToolkitStore<{
+export declare const store: import("@reduxjs/toolkit/dist/configureStore").ToolkitStore<{
     auth: {
         isAuth: boolean;
         errors: {
@@ -118,4 +118,3 @@ export declare const useAppDispatch: () => import("@reduxjs/toolkit").ThunkDispa
     };
 }, undefined, import("redux").AnyAction> & import("redux").Dispatch<import("redux").AnyAction>;
 export declare const useAppSelector: TypedUseSelectorHook<RootState>;
-export default store;
