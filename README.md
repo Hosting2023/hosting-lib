@@ -188,8 +188,7 @@ configureAPI({
 1. В основном файле, куда вы добавляете глобальную логику (обычно \_app.tsx для NextJS ) импортируйте Provider и store
 
 ```javascript
-import { Provider } from "@hosting2023/redux-lib";
-import store from "@hosting2023/redux-lib/dist/src/store/store";
+import { Provider, store } from "@hosting2023/redux-lib";
 
 <Provider store={store}>
   <Component {...pageProps} />
