@@ -11,7 +11,7 @@ npm login --registry=https://npm.pkg.github.com --scope=@hosting2023
 
 После успешной авторизации появится надпись:
 
-Logged in to scope @hosting2023 on https://npm.pkg.github.com/.
+> Logged in to scope @hosting2023 on https://npm.pkg.github.com/.
 
 ## 🚀 Установка
 
